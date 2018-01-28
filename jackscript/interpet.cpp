@@ -58,8 +58,35 @@ void JackScript::Execute(std::string instruction)
 	}
 	else if (instruction == LOOP) // [
 	{
-		stack.Push(IP);
-		IP++;
+		if (DataTable[DP]==0) 
+		{
+			// find the next good bracket becuse skipe time
+			int n = 0;
+			std::string c;
+			while (true)
+			{
+				c = InstructionTable[++IP];
+				if ( c == "[")
+				{
+					n++;
+					
+				}
+				else if (c == "]")
+				{
+					n--;
+				}
+				else if (n == 0)
+				{
+					IP++;
+					return;
+				}
+			}
+		}
+		else
+		{
+			stack.Push(IP);
+			IP++;
+		}
 	}
 	else if (instruction == LOOPEND) // ]
 	{
