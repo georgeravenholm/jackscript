@@ -24,6 +24,9 @@
     <ClInclude Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\interpet.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\stdafx.cpp">

@@ -138,6 +138,7 @@
     <Text Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\interpet.h" />
     <ClInclude Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\stdafx.h" />
     <ClInclude Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\targetver.h" />
   </ItemGroup>

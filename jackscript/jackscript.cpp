@@ -8,17 +8,6 @@
 #include <sstream>
 #include <vector>
 
-#define INCP	"jack" // >
-#define DECP	"Jack" // <
-#define INC		"jAck" // +
-#define DEC		"jAcK" // -
-
-#define OUT		"jACK" // . (output char)
-#define IN		"JACk" // , (accept 1 char)
-
-#define LOOP	"JAck" // [
-#define LOOPEND	"jaCK" // ]
-
 void generateInstructionTable( std::ifstream & dafile , std::vector<std::string> & output ) // Takes file stream and reference of an output vector !!! Warning it does frick up the file stream exdee
 {
 	char byte;
