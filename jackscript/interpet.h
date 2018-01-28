@@ -18,10 +18,16 @@ class JackScript
 #define LOOPEND	"jaCK" // ]
 
 public:
-	JackScript(std::vector<std::string> instructions) // constructor
+	JackScript(const std::vector<std::string> & instructions) // constructor
 	{
 		InstructionTable = instructions;
+
+		DataTable.resize(512, 0); // make sure we actually have sgit in da vektore leole
 	}
+
+	void Step(bool debug);
+
+	bool complete = false;
 private:
 	std::vector<std::string>	InstructionTable;
 	std::vector<int>			DataTable;
@@ -32,8 +38,16 @@ private:
 	struct Stack
 	{
 		int SP = 0;
-		int Stack[255];
+		int Array[255];
+
+		void Push(const int x);
+		int Pop();
+		int Peek();
 	};
+	Stack stack;
 
 	std::string error;
+
+	// Functions
+	void Execute(std::string instruction);
 };

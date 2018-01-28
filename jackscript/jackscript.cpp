@@ -8,6 +8,8 @@
 #include <sstream>
 #include <vector>
 
+#include "interpet.h"
+
 void generateInstructionTable( std::ifstream & dafile , std::vector<std::string> & output ) // Takes file stream and reference of an output vector !!! Warning it does frick up the file stream exdee
 {
 	char byte;
@@ -45,11 +47,15 @@ int main(int argc, char *argv[])
 		generateInstructionTable(jackscriptFile, Instructions); // "explode"
 
 		//Teste
-		int i = 0;
+		/*int i = 0;
 		for (auto & meme : Instructions)
 		{
 			std::cout << ++i << "\t" << meme << std::endl;
-		}
+		}*/
+
+		JackScript universe(Instructions);
+
+		while (!universe.complete) universe.Step(false);
 
 		return 0;
 	}

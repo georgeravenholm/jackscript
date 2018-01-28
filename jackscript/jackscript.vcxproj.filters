@@ -35,5 +35,8 @@
     <ClCompile Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\jackscript.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\%40projects\brainfuck\jackify\jackscript\interpet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
