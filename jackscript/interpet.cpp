@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "interpet.h"
 
+#include <assert.h> 
+
 void JackScript::Step(bool debug)
 {
 	if (IP+1 > InstructionTable.size()) { complete = true; return; } // Do nothing if end of program
@@ -11,11 +13,12 @@ void JackScript::Step(bool debug)
 	if (debug)
 	{
 		// Show the table of sgit
-		int i = 0;
+		/*int i = 0;
 		for (auto data : DataTable)
 		{
 			std::cout << (i++ == DP ? "*" : "") << data << " ";
-		}
+		}*/
+		std::cout << "IP=" << IP << "\tCurrent Data: " << DataTable[DP] << std::endl;
 	}
 }
 
@@ -38,11 +41,13 @@ void JackScript::Execute(std::string instruction)
 	}
 	else if (instruction == INC) // +
 	{
+		//if (DP > DataTable.size()) DataTable.resize(DataTable.size()*2,0);
 		DataTable[DP]++;
 		IP++;
 	}
 	else if (instruction == DEC) // -
 	{
+		assert(DP>=0);
 		DataTable[DP]--;
 		IP++;
 	}
@@ -61,24 +66,20 @@ void JackScript::Execute(std::string instruction)
 		if (DataTable[DP]==0) 
 		{
 			// find the next good bracket becuse skipe time
-			int n = 0;
+			int n = 1;
 			std::string c;
 			while (true)
 			{
 				c = InstructionTable[++IP];
-				if ( c == "[")
+				if ( c == LOOP)
 				{
 					n++;
 					
 				}
-				else if (c == "]")
+				else if (c == LOOPEND) 
 				{
 					n--;
-				}
-				else if (n == 0)
-				{
-					IP++;
-					return;
+					if (n == 0) { IP++; return; };
 				}
 			}
 		}
@@ -90,14 +91,8 @@ void JackScript::Execute(std::string instruction)
 	}
 	else if (instruction == LOOPEND) // ]
 	{
-		if (DataTable[DP] != 0)
-		{
 			IP = stack.Pop();
-		}
-		else
-		{
-			IP++;
-		}
+			//IP++;
 	}
 	else
 	{
