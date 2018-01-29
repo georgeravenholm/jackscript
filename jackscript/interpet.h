@@ -22,7 +22,7 @@ public:
 	{
 		InstructionTable = instructions;
 
-		DataTable.resize(512, 0); // make sure we actually have sgit in da vektore leole
+		DataTable.resize(30000, 0); // make sure we actually have sgit in da vektore leole
 	}
 
 	void Step(bool debug);
