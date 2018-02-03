@@ -85,13 +85,14 @@ void JackScript::Execute(std::string instruction)
 		}
 		else
 		{
-			stack.Push(IP);
+			stack.push(IP);
 			IP++;
 		}
 	}
 	else if (instruction == LOOPEND) // ]
 	{
-			IP = stack.Pop();
+		IP = stack.top();
+		stack.pop(); 
 			//IP++;
 	}
 	else
@@ -104,6 +105,7 @@ void JackScript::Execute(std::string instruction)
 
 
 // The stack
+/*
 void JackScript::Stack::Push(const int x)
 {
 	if (SP == 255)
@@ -127,4 +129,4 @@ int JackScript::Stack::Pop()
 int JackScript::Stack::Peek()
 {
 	return Array[SP];
-}
+}*/
