@@ -56,7 +56,9 @@ int main(int argc, char *argv[])
 		JackScript universe(Instructions);
 
 		while (!universe.complete) universe.Step(false);
-
+#ifdef _DEBUG
+		system("pause");
+#endif
 		return 0;
 	}
 	else
