@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <stack>
 
 class JackScript
 {
@@ -35,7 +36,7 @@ private:
 	int DP = 0; // data pointer
 
 	// Stack for loops
-	struct Stack
+	/*struct Stack
 	{
 		int SP = 0;
 		int Array[255];
@@ -44,7 +45,8 @@ private:
 		int Pop();
 		int Peek();
 	};
-	Stack stack;
+	Stack stack;*/
+	std::stack<int> stack; // std stack 
 
 	std::string error;
 
